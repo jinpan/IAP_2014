@@ -15,12 +15,15 @@ class ExternshipTable(tables.Table):
     class Meta:
         model = Externship
         attrs = {'class': 'paleblue'}
+
+        fields = ('id', 'name', 'title', 'application_count', 'number_of_externs', 'category',
+            'stipend', 'housing_assistance', 'transportation_assistance', 'externship_location', 
+            'requirements', 'web_address')
         
         exclude = (
             'url',
             'description',
             'dates',
-            'requirements',
             'sponsors_job_title',
             )
 

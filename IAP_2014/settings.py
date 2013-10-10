@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Jin Pan', 'jinpan@mit.edu'),
+    ('Youyang Gu', 'yygu@mit.edu'),
 )
 
 MANAGERS = ADMINS
@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/New_York'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -46,7 +46,7 @@ USE_I18N = True
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
+USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -61,7 +61,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/jin/Projects/IAP_2014/IAP_2014/static/'
+STATIC_ROOT = '/Users/youyanggu/MIT/github/externship_scraper/IAP_2014/static'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -108,7 +108,7 @@ ROOT_URLCONF = 'IAP_2014.urls'
 WSGI_APPLICATION = 'IAP_2014.wsgi.application'
 
 TEMPLATE_DIRS = (
-    '/home/jin/Projects/IAP_2014/IAP_2014/templates',
+    '/Users/youyanggu/MIT/github/externship_scraper/IAP_2014/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -136,7 +136,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django_tables2',
-
+    'south',
     'IAP_2014',
 )
 

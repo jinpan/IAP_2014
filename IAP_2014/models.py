@@ -19,9 +19,13 @@ class Externship(models.Model):
     category = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    stipend = models.CharField(max_length=100)
     dates = models.CharField(max_length=100)
 
+    stipend = models.CharField(max_length=200)
+    transportation_assistance = models.CharField(max_length=200)
+    housing_assistance = models.CharField(max_length=200)
+
+    application_count = models.IntegerField()
     number_of_externs = models.IntegerField()
     extern_level_preference = models.CharField(max_length=100)
     requirements = models.TextField()
