@@ -29,3 +29,31 @@ class ExternshipTable(tables.Table):
 
     id = URLColumn2()
 
+
+class ClientSideExternshipTable(tables.Table):
+    class Meta:
+        model = Externship
+        attrs = {'class': 'paleblue sortable'}
+
+        fields = ('id', 'name', 'title', 'application_count', 'number_of_externs', 'category',
+            'stipend', 'housing_assistance', 'transportation_assistance', 'externship_location', 
+            'requirements', 'web_address')
+        
+        exclude = (
+            'url',
+            'description',
+            'dates',
+            'sponsors_job_title',
+            )
+    id = URLColumn2(orderable = False)
+    name = Column(orderable=False)
+    title = Column(orderable=False)
+    application_count = Column(orderable=False)
+    number_of_externs = Column(orderable=False)
+    category = Column(orderable=False)
+    stipend = Column(orderable=False)
+    housing_assistance = Column(orderable=False)
+    transportation_assistance = Column(orderable=False)
+    externship_location = Column(orderable=False)
+    requirements = Column(orderable=False)
+    web_address = Column(orderable=False)

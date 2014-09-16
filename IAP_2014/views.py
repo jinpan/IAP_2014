@@ -9,7 +9,7 @@ from IAP_2014.tables import ExternshipTable
 def home(request):
     if request.META['REMOTE_ADDR'].split('.')[0] != '18':
         return HttpResponseForbidden()
-
+		
     table = ExternshipTable(Externship.objects.all())
     RequestConfig(request).configure(table)
     table.paginate(page=request.GET.get('page', 1), per_page=1000)
@@ -19,4 +19,20 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
+	
+from IAP_2014.tables import ClientSideExternshipTable
+
+def spiffyClientSide(request):
+    if request.META['REMOTE_ADDR'].split('.')[0] != '18':
+        return HttpResponseForbidden()
+		
+    table = ClientSideExternshipTable(Externship.objects.all())
+    RequestConfig(request).configure(table)
+    table.paginate(page=request.GET.get('page', 1), per_page=1000)
+    context = {
+        # 'externships': Externship.objects.all(),
+        'externships': table,
+    }
+
+    return render(request, 'clientSideHome.html', context)
 

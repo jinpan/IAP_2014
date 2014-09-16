@@ -1,0 +1,53 @@
+{% load render_table from django_tables2 %}
+{% load staticfiles %}
+<!doctype html>
+<html>
+    <head>
+		<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+		<script src="{% static 'js/sorttableCustom.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/django-tables2.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" />
+		<style type="text/css">
+		table.paleblue thead th > a
+		{
+			background: url({% static 'img/arrow-inactive-up.png' %}) right center no-repeat
+		}
+		table.paleblue thead th.desc > a
+		{
+			background: url({% static 'img/arrow-active-up.png' %}) right center no-repeat
+		}
+		table.paleblue thead th.asc > a
+		{
+			background: url({% static 'img/arrow-active-down.png' %}) right center no-repeat
+		}
+		table.sortable tbody tr:nth-child(2n+1) td {
+			background: #EDF3FE;
+		}
+		</style>
+		<script type="text/javascript">
+			$(function ()
+			{
+				$("th").addClass("orderable");
+				$("th").click(function ()
+				{
+					$("th").not(this).removeClass("desc");
+					$("th").not(this).removeClass("asc");
+					if ($(this).hasClass("desc"))
+					{
+						$(this).removeClass("desc");
+						$(this).addClass("asc");
+					}
+					else
+					{
+						$(this).addClass("desc");
+					}
+				})
+			});
+		</script>
+		<title>Externships</title>
+    </head>
+    <body>
+        {% render_table externships "table.html" %}
+    </body>
+</html>
